@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://tilesets/tileset_0001.tres" type="TileSet" id=1]
+[ext_resource path="res://sprites/bonez_4.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 16 )
+
+[node name="Level" type="Node2D"]
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2( 96, 72 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 96, 72 )
+scale = Vector2( 12, 9 )
+texture = SubResource( 1 )
+
+[node name="TileMaps" type="Node2D" parent="."]
+
+[node name="TileMap_Main" type="TileMap" parent="TileMaps"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="TileMap_CameraBounds" type="TileMap" parent="TileMaps"]
+modulate = Color( 1, 1, 1, 0.247059 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="TileMap_Edge" type="TileMap" parent="TileMaps"]
+modulate = Color( 1, 1, 1, 0.247059 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="DeathZones" type="Node2D" parent="."]
+
+[node name="SilverKeys" type="Node2D" parent="."]
+
+[node name="GoldKeys" type="Node2D" parent="."]
+
+[node name="SilverLocks" type="Node2D" parent="."]
+
+[node name="GoldLocks" type="Node2D" parent="."]
+
+[node name="LoadLevelZones" type="Node2D" parent="."]

@@ -1,0 +1,33 @@
+﻿<Project Sdk="Godot.NET.Sdk/3.3.0">
+  <PropertyGroup>
+    <ProjectGuid>{04C0EB18-0B43-48FF-AA3B-9743F9243BF4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>NewTest</RootNamespace>
+    <AssemblyName>NewTest</AssemblyName>
+    <GodotProjectGeneratorVersion>1.0.0.0</GodotProjectGeneratorVersion>
+    <TargetFramework>net472</TargetFramework>
+    <!--The following properties were overridden during migration to prevent errors.
+    Enabling them may require other manual changes to the project and its files.-->
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Deterministic>false</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="scripts\Actor.cs" />
+    <Compile Include="scripts\Bat.cs" />
+    <Compile Include="scripts\CameraController.cs" />
+    <Compile Include="scripts\CreditsSceneController.cs" />
+    <Compile Include="scripts\GameSceneController.cs" />
+    <Compile Include="scripts\IntroSceneController.cs" />
+    <Compile Include="scripts\LoadLevelZone.cs" />
+    <Compile Include="scripts\TestScript.cs" />
+    <Compile Include="scripts\TitleSceneController.cs" />
+  </ItemGroup>
+</Project>

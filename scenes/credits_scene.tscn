@@ -1,0 +1,162 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://sprites/bonez_4.png" type="Texture" id=1]
+[ext_resource path="res://fonts/SuperLegendBoy.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://sprites/bonez.png" type="Texture" id=3]
+[ext_resource path="res://sprites/title_flag_transparent.png" type="Texture" id=4]
+[ext_resource path="res://music/music_credits.ogg" type="AudioStream" id=5]
+[ext_resource path="res://scripts/CreditsSceneController.cs" type="Script" id=6]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 48, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 144, 64, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 3 )
+region = Rect2( 160, 64, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 3 )
+region = Rect2( 176, 64, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 3 )
+region = Rect2( 192, 64, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=10]
+size = 6
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 8
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 6
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 8
+font_data = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 96, 72 )
+scale = Vector2( 12, 9 )
+texture = SubResource( 1 )
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+position = Vector2( 24, 24 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 4 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 24, 112 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 9 )
+frame = 3
+playing = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Ste List" type="Label" parent="CanvasLayer"]
+margin_left = 120.0
+margin_right = 192.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 10 )
+text = "Graphics
+Sound Effects
+Music
+Level Design"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ste" type="Label" parent="CanvasLayer"]
+margin_left = 48.0
+margin_right = 120.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 11 )
+text = "Steven
+Craddock"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tom List" type="Label" parent="CanvasLayer"]
+margin_left = 120.0
+margin_top = 96.0
+margin_right = 192.0
+margin_bottom = 144.0
+custom_fonts/font = SubResource( 12 )
+text = "Level Design
+Programming"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tom" type="Label" parent="CanvasLayer"]
+margin_left = 48.0
+margin_top = 96.0
+margin_right = 120.0
+margin_bottom = 144.0
+custom_fonts/font = SubResource( 13 )
+text = "Thomas
+Hodgkinson"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fader" type="Panel" parent="CanvasLayer"]
+modulate = Color( 0, 0, 0, 0 )
+margin_right = 192.0
+margin_bottom = 144.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 96, 72 )
+scale = Vector2( 0.516129, 0.516129 )
+texture = ExtResource( 4 )

@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://sprites/death_zones.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Bat.cs" type="Script" id=3]
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 32, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 5 ) ],
+"loop": true,
+"name": "anim_0000",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "anim_0001",
+"speed": 8.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 7.5, 7.5 )
+
+[node name="Bat" type="Node2D" groups=[
+"Bats",
+"DeathZones",
+]]
+position = Vector2( 96, 72 )
+script = ExtResource( 3 )
+
+[node name="View" type="Node2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="View"]
+frames = SubResource( 6 )
+animation = "anim_0000"
+playing = true
+
+[node name="Area2D" type="Area2D" parent="View"]
+gravity_vec = Vector2( 0, 0 )
+gravity = 0.0
+linear_damp = 0.0
+angular_damp = 0.0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="View/Area2D"]
+visible = false
+shape = SubResource( 7 )
+
+[node name="Nodes" type="Node2D" parent="."]
+
+[node name="Point1" type="Node2D" parent="Nodes"]
+position = Vector2( -48, 0 )
+
+[node name="Point2" type="Node2D" parent="Nodes"]
+position = Vector2( 48, 0 )

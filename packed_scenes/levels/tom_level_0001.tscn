@@ -1,0 +1,154 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://tilesets/tileset_0001.tres" type="TileSet" id=1]
+[ext_resource path="res://sprites/bonez_4.png" type="Texture" id=2]
+[ext_resource path="res://packed_scenes/LoadLevelZone.tscn" type="PackedScene" id=3]
+[ext_resource path="res://packed_scenes/death_zones/SpikesUp.tscn" type="PackedScene" id=5]
+[ext_resource path="res://packed_scenes/items/keys/SilverKey.tscn" type="PackedScene" id=6]
+[ext_resource path="res://packed_scenes/items/locks/SilverLock.tscn" type="PackedScene" id=7]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 16 )
+
+[node name="Level" type="Node2D"]
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2( 24, 120 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 96, 72 )
+scale = Vector2( 12, 9 )
+texture = SubResource( 1 )
+
+[node name="TileMaps" type="Node2D" parent="."]
+
+[node name="TileMap_Background" type="TileMap" parent="TileMaps"]
+modulate = Color( 1, 1, 1, 0.247059 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 65537, 536870912, 7, 65538, 536870912, 7, 65539, 536870912, 7, 65540, 536870912, 7, 65541, 536870912, 7, 65542, 536870912, 7, 65543, 536870912, 7, 65544, 536870912, 7, 65545, 536870912, 7, 65546, 536870912, 7, 131073, 536870912, 7, 131081, 536870912, 7, 131082, 536870912, 7, 196609, 536870912, 7, 196610, 536870912, 7, 196611, 536870912, 7, 196612, 536870912, 7, 196613, 536870912, 7, 196614, 536870912, 7, 196615, 536870912, 7, 196617, 536870912, 7, 196618, 536870912, 7, 262145, 536870912, 7, 262146, 536870912, 7, 262147, 536870912, 7, 262148, 536870912, 7, 262149, 536870912, 7, 262150, 536870912, 7, 262151, 536870912, 7, 262153, 536870912, 7, 262154, 536870912, 7, 327681, 536870912, 7, 327682, 536870912, 7, 327684, 536870912, 7, 327685, 536870912, 7, 327687, 536870912, 7, 327689, 536870912, 7, 327690, 536870912, 7, 393217, 536870912, 7, 393218, 536870912, 7, 393219, 536870912, 7, 393220, 536870912, 7, 393221, 536870912, 7, 393222, 536870912, 7, 393223, 536870912, 7, 393225, 536870912, 7, 393226, 536870912, 7, 458753, 536870912, 7, 458754, 536870912, 7, 458755, 536870912, 7, 458756, 536870912, 7, 458757, 536870912, 7, 458758, 536870912, 7, 458759, 536870912, 7, 458761, 536870912, 7, 458762, 536870912, 7 )
+
+[node name="TileMap_Main" type="TileMap" parent="TileMaps"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -262144, 0, 4, -262143, 0, 4, -262142, 0, 4, -262141, 0, 4, -262137, 0, 4, -262136, 0, 4, -262135, 0, 4, -262134, 0, 4, -131073, 0, 4, -196608, 0, 2, -196607, 0, 2, -196606, 0, 2, -196605, 0, 2, -196604, 0, 4, -196603, 0, 4, -196602, 0, 4, -196601, 0, 2, -196600, 0, 2, -196599, 0, 2, -196598, 0, 2, -196597, 0, 4, -196596, 0, 4, -196595, 0, 4, -65537, 0, 2, -131072, 0, 2, -131071, 0, 2, -131070, 0, 2, -131069, 0, 2, -131068, 0, 2, -131067, 0, 2, -131066, 0, 2, -131065, 0, 2, -131064, 0, 2, -131063, 0, 2, -131062, 0, 2, -131061, 0, 2, -131060, 0, 2, -131059, 0, 2, -2, 0, 4, -1, 0, 2, -65536, 0, 2, -65535, 0, 2, -65534, 0, 2, -65533, 0, 2, -65532, 0, 2, -65531, 0, 2, -65530, 0, 2, -65529, 0, 2, -65528, 0, 2, -65527, 0, 2, -65526, 0, 2, -65525, 0, 2, -65524, 0, 2, -65523, 0, 2, -65522, 0, 4, 65534, 0, 2, 65535, 0, 2, 0, 0, 5, 1, 0, 5, 2, 0, 5, 3, 0, 5, 4, 0, 5, 5, 0, 5, 6, 0, 5, 7, 0, 5, 8, 0, 5, 9, 0, 5, 10, 0, 5, 11, 0, 5, 12, 0, 2, 13, 0, 2, 14, 0, 2, 131070, 0, 2, 131071, 0, 2, 65536, 0, 5, 65547, 0, 5, 65548, 0, 2, 65549, 0, 2, 65550, 0, 3, 196606, 0, 2, 196607, 0, 2, 131072, 0, 5, 131074, 0, 5, 131075, 0, 5, 131076, 0, 5, 131077, 0, 5, 131078, 0, 5, 131079, 0, 5, 131080, 0, 5, 131083, 0, 5, 131084, 0, 2, 131085, 0, 2, 131086, 0, 2, 262142, 0, 2, 262143, 0, 2, 196608, 0, 5, 196616, 0, 5, 196619, 0, 5, 196620, 0, 2, 196621, 0, 2, 196622, 0, 2, 327677, 0, 4, 327678, 0, 2, 327679, 0, 2, 262144, 0, 5, 262152, 0, 5, 262155, 0, 5, 262156, 0, 2, 262157, 0, 2, 262158, 0, 2, 262159, 0, 4, 393213, 0, 2, 393214, 0, 2, 393215, 0, 2, 327680, 0, 5, 327681, 0, 5, 327684, 0, 5, 327686, 0, 5, 327688, 0, 5, 327691, 0, 5, 327692, 0, 2, 327693, 0, 2, 327694, 0, 2, 327695, 0, 2, 458749, 0, 2, 458750, 0, 2, 458751, 0, 2, 393216, 0, 5, 393224, 0, 5, 393227, 0, 5, 393228, 0, 2, 393229, 0, 2, 393230, 0, 2, 393231, 0, 3, 524285, 0, 3, 524286, 0, 2, 524287, 0, 2, 458752, 0, 5, 458760, 0, 5, 458763, 0, 5, 458764, 0, 2, 458765, 0, 2, 458766, 0, 2, 589822, 0, 2, 589823, 0, 2, 524288, 0, 5, 524289, 0, 5, 524290, 0, 5, 524291, 0, 5, 524292, 0, 5, 524293, 0, 5, 524294, 0, 5, 524295, 0, 5, 524296, 0, 5, 524297, 0, 5, 524298, 0, 5, 524299, 0, 5, 524300, 0, 2, 524301, 0, 2, 524302, 0, 3, 655358, 0, 3, 655359, 0, 2, 589824, 0, 2, 589825, 0, 2, 589826, 0, 2, 589827, 0, 2, 589828, 0, 2, 589829, 0, 2, 589830, 0, 2, 589831, 0, 2, 589832, 0, 2, 589833, 0, 2, 589834, 0, 2, 589835, 0, 2, 589836, 0, 2, 589837, 0, 2, 720895, 0, 2, 655360, 0, 2, 655361, 0, 2, 655362, 0, 2, 655363, 0, 2, 655364, 0, 2, 655365, 0, 2, 655366, 0, 2, 655367, 0, 2, 655368, 0, 2, 655369, 0, 2, 655370, 0, 2, 655371, 0, 2, 655372, 0, 2, 655373, 0, 3, 786431, 0, 3, 720896, 0, 3, 720897, 0, 2, 720898, 0, 2, 720899, 0, 2, 720900, 0, 2, 720901, 0, 2, 720902, 0, 2, 720903, 0, 2, 720904, 0, 2, 720905, 0, 2, 720906, 0, 2, 720907, 0, 3, 720908, 0, 3, 786433, 0, 3, 786434, 0, 3, 786435, 0, 3, 786436, 0, 3, 786437, 0, 2, 786438, 0, 2, 786439, 0, 3, 786440, 0, 3, 786441, 0, 3, 786442, 0, 3, 851973, 0, 3, 851974, 0, 3 )
+
+[node name="TileMap_Foreground" type="TileMap" parent="TileMaps"]
+modulate = Color( 1, 1, 1, 0.498039 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 65538, 536870912, 3, 65539, 536870912, 0, 65543, 536870912, 4, 65545, 536870912, 0, 65546, 536870912, 3, 196610, 536870912, 0, 196611, 536870912, 3, 196612, 536870912, 65538, 196613, 536870912, 65538, 196614, 536870912, 65538, 196615, 536870912, 65538, 262146, 536870912, 65538, 262147, 536870912, 65538, 262148, 536870912, 65538, 262149, 536870912, 65538, 262150, 536870912, 65538, 262151, 536870912, 65538, 327687, 536870912, 65538, 393223, 536870912, 65538, 458753, 536870912, 65538, 458754, 536870912, 65538, 458755, 536870912, 65538, 458756, 536870912, 65538, 458757, 536870912, 65538, 458758, 536870912, 65538, 458759, 536870912, 65538 )
+
+[node name="TileMap_CameraBounds" type="TileMap" parent="TileMaps"]
+visible = false
+modulate = Color( 1, 1, 1, 0.247059 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 0, 0, 65537, 11, 0, 65537, 524288, 0, 65537, 524299, 0, 65537 )
+
+[node name="TileMap_Edge" type="TileMap" parent="TileMaps"]
+visible = false
+modulate = Color( 1, 1, 1, 0.247059 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -1, 0, 5, -65536, 0, 5, -65535, 0, 5, -65534, 0, 5, -65533, 0, 5, -65532, 0, 5, -65531, 0, 5, -65530, 0, 5, -65529, 0, 5, -65528, 0, 5, -65527, 0, 5, -65526, 0, 5, -65525, 0, 5, -65524, 0, 5, 65535, 0, 5, 12, 0, 5, 131071, 0, 5, 65548, 0, 5, 196607, 0, 5, 131084, 0, 5, 262143, 0, 5, 196620, 0, 5, 327679, 0, 5, 262156, 0, 5, 393215, 0, 5, 327692, 0, 5, 458751, 0, 5, 393228, 0, 5, 524287, 0, 5, 458764, 0, 5, 589823, 0, 5, 524300, 0, 5, 655359, 0, 5, 589824, 0, 5, 589825, 0, 5, 589826, 0, 5, 589827, 0, 5, 589828, 0, 5, 589829, 0, 5, 589830, 0, 5, 589831, 0, 5, 589832, 0, 5, 589833, 0, 5, 589834, 0, 5, 589835, 0, 5, 589836, 0, 5 )
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="DeathZones" type="Node2D" parent="."]
+
+[node name="SpikesUp" parent="DeathZones" instance=ExtResource( 5 )]
+position = Vector2( 88, 88 )
+
+[node name="SpikesUp2" parent="DeathZones" instance=ExtResource( 5 )]
+position = Vector2( 56, 88 )
+
+[node name="SpikesUp3" parent="DeathZones" instance=ExtResource( 5 )]
+position = Vector2( 40, 88 )
+
+[node name="SilverKeys" type="Node2D" parent="."]
+
+[node name="SilverKey" parent="SilverKeys" instance=ExtResource( 6 )]
+position = Vector2( 72, 72 )
+
+[node name="GoldKeys" type="Node2D" parent="."]
+
+[node name="SilverLocks" type="Node2D" parent="."]
+
+[node name="SilverLock" parent="SilverLocks" instance=ExtResource( 7 )]
+position = Vector2( 24, 40 )
+
+[node name="GoldLocks" type="Node2D" parent="."]
+
+[node name="LoadLevelZones" type="Node2D" parent="."]
+
+[node name="Blue" parent="LoadLevelZones" instance=ExtResource( 3 )]
+modulate = Color( 0, 0.0392157, 1, 1 )
+position = Vector2( 24, 104 )
+LevelName = "tom_hell_0001"
+
+[node name="Blue2" parent="LoadLevelZones" instance=ExtResource( 3 )]
+modulate = Color( 0, 0.0392157, 1, 1 )
+position = Vector2( 152, 120 )
+LevelName = "tom_hell_0001"
+
+[node name="Blue3" parent="LoadLevelZones" instance=ExtResource( 3 )]
+modulate = Color( 0, 0.0392157, 1, 1 )
+position = Vector2( 152, 104 )
+LevelName = "tom_hell_0001"
+
+[node name="Blue4" parent="LoadLevelZones" instance=ExtResource( 3 )]
+modulate = Color( 0, 0.0392157, 1, 1 )
+position = Vector2( 152, 88 )
+LevelName = "tom_hell_0001"
+
+[node name="Blue5" parent="LoadLevelZones" instance=ExtResource( 3 )]
+modulate = Color( 0, 0.0392157, 1, 1 )
+position = Vector2( 152, 72 )
+LevelName = "tom_hell_0001"
+
+[node name="Blue6" parent="LoadLevelZones" instance=ExtResource( 3 )]
+modulate = Color( 0, 0.0392157, 1, 1 )
+position = Vector2( 152, 56 )
+LevelName = "tom_hell_0001"
+
+[node name="Blue7" parent="LoadLevelZones" instance=ExtResource( 3 )]
+modulate = Color( 0, 0.0392157, 1, 1 )
+position = Vector2( 40, 104 )
+LevelName = "tom_hell_0001"
+
+[node name="Blue8" parent="LoadLevelZones" instance=ExtResource( 3 )]
+modulate = Color( 0, 0.0392157, 1, 1 )
+position = Vector2( 56, 104 )
+LevelName = "tom_hell_0001"
+
+[node name="Blue9" parent="LoadLevelZones" instance=ExtResource( 3 )]
+modulate = Color( 0, 0.0392157, 1, 1 )
+position = Vector2( 72, 104 )
+LevelName = "tom_hell_0001"
+
+[node name="Blue10" parent="LoadLevelZones" instance=ExtResource( 3 )]
+modulate = Color( 0, 0.0392157, 1, 1 )
+position = Vector2( 88, 104 )
+LevelName = "tom_hell_0001"
+
+[node name="Blue11" parent="LoadLevelZones" instance=ExtResource( 3 )]
+modulate = Color( 0, 0.0392157, 1, 1 )
+position = Vector2( 104, 104 )
+LevelName = "tom_hell_0001"
+
+[node name="LoadLevelZone" parent="LoadLevelZones" instance=ExtResource( 3 )]
+position = Vector2( 168, 120 )
+LevelName = "tom_well_done"

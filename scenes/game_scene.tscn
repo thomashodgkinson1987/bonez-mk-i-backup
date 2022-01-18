@@ -1,0 +1,152 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://packed_scenes/actors/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://packed_scenes/levels/tom_level_0001.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sprites/bonez_1.png" type="Texture" id=3]
+[ext_resource path="res://scripts/GameSceneController.cs" type="Script" id=4]
+[ext_resource path="res://sounds/coin.ogg" type="AudioStream" id=5]
+[ext_resource path="res://sounds/death.ogg" type="AudioStream" id=6]
+[ext_resource path="res://scripts/CameraController.cs" type="Script" id=7]
+[ext_resource path="res://music/music_level_0002.ogg" type="AudioStream" id=8]
+[ext_resource path="res://fonts/SuperLegendBoy.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://sounds/5.ogg" type="AudioStream" id=13]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 22, 6, 4, 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 4
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 4
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 4
+font_data = ExtResource( 10 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 4 )
+LevelToLoad = "Ste_level_2"
+CurrentLevel = "tom_level_0001"
+
+[node name="AudioStreamPlayers" type="Node" parent="."]
+
+[node name="AudioStreamPlayer_CollectCoin" type="AudioStreamPlayer" parent="AudioStreamPlayers"]
+stream = ExtResource( 5 )
+volume_db = 10.0
+
+[node name="AudioStreamPlayer_CollectKey" type="AudioStreamPlayer" parent="AudioStreamPlayers"]
+stream = ExtResource( 13 )
+
+[node name="AudioStreamPlayer_PlayerDied" type="AudioStreamPlayer" parent="AudioStreamPlayers"]
+stream = ExtResource( 6 )
+
+[node name="AudioStreamPlayer_Music" type="AudioStreamPlayer" parent="AudioStreamPlayers"]
+stream = ExtResource( 8 )
+autoplay = true
+
+[node name="LevelHolder" type="Node2D" parent="."]
+
+[node name="Level" parent="LevelHolder" instance=ExtResource( 2 )]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+margin_right = 32.0
+margin_bottom = 8.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coin" type="TextureRect" parent="CanvasLayer/Panel"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 4.0
+margin_bottom = 4.0
+texture = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CoinsCollected" type="Label" parent="CanvasLayer/Panel"]
+margin_left = 8.0
+margin_right = 16.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 2 )
+text = "00"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Divider" type="Label" parent="CanvasLayer/Panel"]
+margin_left = 16.0
+margin_right = 24.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 2 )
+text = "/"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CoinsLeft" type="Label" parent="CanvasLayer/Panel"]
+margin_left = 24.0
+margin_right = 32.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 2 )
+text = "00"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel2" type="Panel" parent="CanvasLayer"]
+margin_left = 144.0
+margin_right = 192.0
+margin_bottom = 16.0
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": "	"
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel2"]
+margin_right = 48.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 3 )
+text = "00:00.00"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer/Panel2"]
+margin_top = 8.0
+margin_right = 48.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 4 )
+text = "Coins "
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 144, 108 )
+current = true
+zoom = Vector2( 1.5, 1.5 )
+script = ExtResource( 7 )
+InnerExtents = Vector2( 16, 16 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 24, 120 )
+JumpLimit = 2
+[connection signal="OnActorEntered" from="Player" to="." method="OnPlayerEntered"]

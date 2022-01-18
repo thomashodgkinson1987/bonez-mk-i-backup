@@ -1,0 +1,112 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://sprites/bonez_4.png" type="Texture" id=1]
+[ext_resource path="res://scripts/TitleSceneController.cs" type="Script" id=2]
+[ext_resource path="res://music/music_title_loop.ogg" type="AudioStream" id=3]
+[ext_resource path="res://sprites/title_flag_transparent.png" type="Texture" id=4]
+[ext_resource path="res://sprites/bonez.png" type="Texture" id=5]
+[ext_resource path="res://tilesets/tileset_0001.tres" type="TileSet" id=6]
+[ext_resource path="res://fonts/SuperLegendBoy.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 48, 16, 16 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="DynamicFont" id=8]
+size = 12
+font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="DynamicFont" id=14]
+size = 12
+font_data = ExtResource( 8 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="AudioStreamPlayer_Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+
+[node name="Background" type="Sprite" parent="."]
+scale = Vector2( 12, 9 )
+texture = SubResource( 1 )
+centered = false
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2( 0.5, 0.5 )
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 3, 0, 15, 12, 0, 15, 19, 0, 15, 65539, 0, 15, 65548, 0, 15, 65554, 0, 19, 65555, 0, 17, 131075, 0, 15, 131084, 0, 15, 131091, 0, 15, 196611, 0, 15, 196620, 0, 15, 196627, 0, 15, 262147, 0, 16, 262148, 0, 18, 262156, 0, 15, 262163, 0, 15, 327683, 0, 15, 327692, 0, 15, 327699, 0, 16, 327700, 0, 18, 393219, 0, 15, 393228, 0, 15, 393235, 0, 15, 458755, 0, 15, 458764, 0, 15, 458771, 0, 15, 524291, 0, 15, 524300, 0, 16, 524301, 0, 18, 524307, 0, 15, 589824, 0, 4, 589825, 0, 4, 589826, 0, 4, 589827, 0, 15, 589828, 0, 4, 589829, 0, 131079, 589830, 0, 4, 589831, 0, 4, 589832, 0, 131078, 589833, 0, 4, 589834, 0, 4, 589835, 0, 4, 589836, 0, 15, 589837, 0, 4, 589838, 0, 131077, 589839, 0, 4, 589840, 0, 131080, 589841, 0, 4, 589842, 0, 4, 589843, 0, 15, 589844, 0, 4, 589845, 0, 4, 589846, 0, 4, 589847, 0, 4, 655360, 0, 5, 655361, 0, 5, 655362, 0, 5, 655363, 0, 5, 655364, 0, 5, 655365, 0, 5, 655366, 0, 5, 655367, 0, 5, 655368, 0, 5, 655369, 0, 5, 655370, 0, 5, 655371, 0, 5, 655372, 0, 5, 655373, 0, 5, 655374, 0, 5, 655375, 0, 5, 655376, 0, 5, 655377, 0, 5, 655378, 0, 5, 655379, 0, 5, 655380, 0, 5, 655381, 0, 5, 655382, 0, 5, 655383, 0, 5, 720896, 0, 6, 720897, 0, 6, 720898, 0, 6, 720899, 0, 6, 720900, 0, 6, 720901, 0, 6, 720902, 0, 6, 720903, 0, 6, 720904, 0, 6, 720905, 0, 6, 720906, 0, 6, 720907, 0, 6, 720908, 0, 6, 720909, 0, 6, 720910, 0, 6, 720911, 0, 6, 720912, 0, 6, 720913, 0, 6, 720914, 0, 6, 720915, 0, 6, 720916, 0, 6, 720917, 0, 6, 720918, 0, 6, 720919, 0, 6, 786432, 0, 7, 786433, 0, 7, 786434, 0, 7, 786435, 0, 7, 786436, 0, 7, 786437, 0, 7, 786438, 0, 7, 786439, 0, 7, 786440, 0, 7, 786441, 0, 7, 786442, 0, 7, 786443, 0, 7, 786444, 0, 7, 786445, 0, 7, 786446, 0, 7, 786447, 0, 7, 786448, 0, 7, 786449, 0, 7, 786450, 0, 7, 786451, 0, 7, 786452, 0, 7, 786453, 0, 7, 786454, 0, 7, 786455, 0, 7 )
+
+[node name="Title" type="Sprite" parent="."]
+position = Vector2( 96, 32 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Bonez" type="Sprite" parent="."]
+position = Vector2( 108, 60 )
+scale = Vector2( 0.5, 0.5 )
+texture = SubResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Start Button" type="Button" parent="CanvasLayer"]
+margin_left = 72.0
+margin_top = 104.0
+margin_right = 120.0
+margin_bottom = 120.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+shortcut_in_tooltip = false
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit Button" type="Button" parent="CanvasLayer"]
+margin_left = 72.0
+margin_top = 120.0
+margin_right = 120.0
+margin_bottom = 136.0
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/focus = SubResource( 11 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
+shortcut_in_tooltip = false
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="CanvasLayer/Start Button" to="." method="OnStartButtonPressed"]
+[connection signal="pressed" from="CanvasLayer/Quit Button" to="." method="OnQuitButtonPressed"]
